@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Service
 public class TrasnactionService {
@@ -20,11 +21,15 @@ public class TrasnactionService {
     public static class NotEnoughMoney extends Exception {
         Client client;
 
+        @Override
+        public String getMessage() {
+            return "Not enough money to make transaction :(";
+        }
     }
 
-    final
+    private final
     TransactionRepository transactionRepository;
-    final ClientRepostiory clientRepostiory;
+    private final ClientRepostiory clientRepostiory;
 
     public TrasnactionService(TransactionRepository transactionRepository, ClientRepostiory clientRepostiory) {
         this.transactionRepository = transactionRepository;
@@ -32,7 +37,7 @@ public class TrasnactionService {
     }
 
     @Transactional(rollbackFor = Exception.class)
-    public Transactions make(Client client, BigDecimal amount, Transactions.TrTypes type) throws NotEnoughMoney {
+    public void make(Client client, BigDecimal amount, Transactions.TrTypes type) throws NotEnoughMoney {
         Transactions transaction = new Transactions();
         transaction.setAmount(amount);
         transaction.setType(type);
@@ -42,6 +47,9 @@ public class TrasnactionService {
         if (i == 0) {
             throw new NotEnoughMoney(client);
         }
-        return null;
+    }
+
+    public List<Transactions> findByUserId(Long id){
+        return transactionRepository.findByUserId(id);
     }
 }

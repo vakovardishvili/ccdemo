@@ -10,8 +10,6 @@ import java.math.BigDecimal;
 @Entity
 @Getter
 @Setter
-
-
 public class Client {
 
     @Id

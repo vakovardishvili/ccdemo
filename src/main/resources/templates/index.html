@@ -1,0 +1,33 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <style>
+        .button {
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+
+        .button1 {background-color: green;} /* Green */
+        .button2 {background-color: blue;} /* Blue */
+        .button3 {background-color: red;} /* Red */
+    </style>
+</head>
+<body>
+<h1 th:text="${success}"></h1>
+
+<a href='/paybyphone'><button class="button button1">მობილურის ბალანსი</button></a>
+<a href='/paybyid'><button class="button button2">კომუნალური</button></a>
+<a href='/choosebank'><button class="button button3">ფინანსური</button></a>
+<a href='/gettransactions/1'><button class="button button3">ტრანზაქციები</button></a>
+
+</body>
+</html>

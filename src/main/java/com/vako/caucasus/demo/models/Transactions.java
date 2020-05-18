@@ -25,6 +25,16 @@ public class Transactions {
         }
     }
 
+    @Override
+    public String toString() {
+        return "Transactions{" +
+                "id=" + id +
+                ", userId=" + userId +
+                ", type=" + type +
+                ", amount=" + amount +
+                '}';
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
