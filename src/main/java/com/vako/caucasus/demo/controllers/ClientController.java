@@ -26,12 +26,7 @@ public class ClientController {
     private final
     TrasnactionService trasnactionService;
 
-    @RequestMapping("html")
-    public ModelAndView welcome () {
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("index");
-        return modelAndView;
-    }
+
 
     @RequestMapping("paybyphone")
     public ModelAndView payByPhone () {
