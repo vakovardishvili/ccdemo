@@ -15,7 +15,6 @@ import java.util.List;
 @Service
 public class TrasnactionService {
 
-
     @Getter
     @AllArgsConstructor
     public static class NotEnoughMoney extends Exception {
